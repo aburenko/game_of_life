@@ -9,10 +9,11 @@ class Cells:
         self.cells[x][y] = True
 
     def get_next_condition(self, x, y):
-        // TODO: implement game of life rules
+        # TODO: implement game of life rules
         return False
 
     def get_next(self):
+        # get new condition for all cells
         new_cells = self.cells
         for y in self.cells:
             for x in row:

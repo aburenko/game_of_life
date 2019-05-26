@@ -14,13 +14,13 @@ class Game(QWidget):
         # init ui
         super().__init__()
         self.init_ui()
-        # start polling
+        # start polling with new thread
         t = threading.Thread(target=self.get_next, args=(timer,))
         t.start()
 
     def get_next(self, timer):
         while True:
-            print("get next")
+            # load new cells and redraw
             cells_new = self.cells.get_next()
             self.redraw(cells_new)
             self.update()
@@ -28,12 +28,14 @@ class Game(QWidget):
 
     def button_clicked(self):
         sender = self.sender()
+        # get x,y values of button and send to Cells
         tip = sender.toolTip()
         x, y = tip.split(':')
         self.cells.set_cell(int(x), int(y))
         sender.setStyleSheet("background-color: blue")
 
     def init_ui(self):
+        # create buttons to simulate cells
         for x in range(self.w):
             for y in range(self.h):
                 btn = QPushButton('', self)
@@ -44,13 +46,13 @@ class Game(QWidget):
                 btn.clicked.connect(self.button_clicked)
                 # noinspection PyTypeChecker
                 self.buttons[x][y] = btn
-
+        # set window
         self.setGeometry(20*self.w+100, 20*self.h+100, 20*self.w, 20*self.h)
         self.setWindowTitle('Game of Life')
         self.show()
 
     def redraw(self, cells):
-        print("draw")
+        # redraw buttons
         for x in range(self.w):
             for y in range(self.h):
                 if cells[x][y]:
