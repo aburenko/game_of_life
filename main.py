@@ -9,7 +9,7 @@ if __name__ == '__main__':
     # set number of cells
     width = 20
     height = 20
-    timer = 2
+    timer = 1
     # init cells
     cells = cells.Cells(width, height)
     # init gui
