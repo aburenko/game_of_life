@@ -14,5 +14,6 @@ if __name__ == '__main__':
     cells = cells.Cells(width, height)
     # init gui
     app = QApplication(sys.argv)
+    app.setStyle('cleanlooks')
     ex = gui.Game(width, height, cells, timer)
     sys.exit(app.exec_())
