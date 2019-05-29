@@ -1,5 +1,5 @@
 from PyQt5.QtWidgets import (QWidget, QCheckBox, QPushButton, QSlider)
-from PyQt5.QtCore import Qt, pyqtSignal
+from PyQt5.QtCore import Qt
 import time
 import threading
 
@@ -7,7 +7,6 @@ import threading
 class Game(QWidget):
 
     def __init__(self, w, h, cells):
-        # self.trigger = pyqtSignal()
         self.slider = None
         # init vars
         self.running = True
