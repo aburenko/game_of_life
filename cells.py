@@ -1,5 +1,6 @@
 import copy
 
+
 class Cells:
 
     def __init__(self, w, h):

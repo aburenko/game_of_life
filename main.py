@@ -7,13 +7,11 @@ import cells
 
 if __name__ == '__main__':
     # set number of cells
-    width = 20
-    height = 20
-    timer = 1
+    width = 32
+    height = 32
     # init cells
     cells = cells.Cells(width, height)
     # init gui
     app = QApplication(sys.argv)
-    app.setStyle('cleanlooks')
-    ex = gui.Game(width, height, cells, timer)
+    game = gui.Game(width, height, cells)
     sys.exit(app.exec_())
